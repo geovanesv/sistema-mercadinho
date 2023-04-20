@@ -1,0 +1,48 @@
+
+
+<div class="main-w3layouts wrapper">
+	<h1 class="d-flex justify-content-center" style="margin-top: 15px;" >Lista de Produtos</h1>
+	<div class="main-agileinfolista ">
+		<div class="agileits-top">
+			<div class="d-flex justify-content-end" style="margin-bottom: 15px;"><a href="/cadastrar" class="btn btn-success novoProd">Novo</a></div>
+			
+			<table class="table table-bordered ">
+				<thead>
+					<tr class="titulo">
+						<th scope="col">Id</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Categoria</th>
+						<th scope="col">Preco</th>
+						<th scope="col" colspan="2" class="acoes">Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each produtos}}
+						<tr>
+							<th scope="row">{{this.id}}</th>
+							<td>{{this.nome}}</td>
+							<td>{{this.categoria}}</td>
+							<td>R$ {{this.preco}}</td>
+							<td class="btnAcoes">
+								<a href="/edit/{{this.id}}" class="btn btn-success">
+									Editar
+								</a>
+							</td>
+							<td class="btnAcoes">
+								<form action="/remove" method="post">
+									<button type="submit" class="btn btn-danger">
+          								<input type="hidden" name="id" value="{{this.id}}">
+										Excluir
+									</button>
+								</form>
+							
+							</td>
+						</tr>
+					{{else}}
+					<h4 class="mt-2">Nenhum Produto cadastrado!</h4>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

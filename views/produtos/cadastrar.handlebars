@@ -1,0 +1,49 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            Cadastrar Produto
+        </div>
+        <div class="card-body">
+            <form action="/add" method="POST">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control"  name="nome">
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select name="categoria" id="categoria" class="form-control">
+                        <option value="Alimentos">Alimentos</option>
+                        <option value="Congelados e frios">Congelados e frios</option>
+                        <option value="Limpeza">Limpeza</option>
+                        <option value="Higiene pessoal">Higiene pessoal</option>
+                        <option value="Bebidas">Bebidas</option>
+                        <option value="Papelaria">Papelaria</option>
+                        <option value="Variedades">Variedades</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="preco">Preço</label>
+                    <input type="text" class="form-control" name="preco">
+                </div>            
+                    <!--
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+                    -->
+                
+                <div class="row md-2" style="margin-top: 15px; margin-left:5px">
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-danger" href="/">Voltar</a>
+                    </div>
+
+                </div>
+            </form>                
+        </div>
+    </div>
+    {{#if message}}
+    <h4 class="alert alert-danger mt4">{{message}}</h4>
+    {{/if}}
+</div>
