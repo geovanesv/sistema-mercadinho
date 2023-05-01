@@ -1,5 +1,5 @@
-const Venda = require('../model/Venda')
-const Produto = require('../model/Produto')
+const Venda = require('../models/Venda')
+const Produto = require('../models/Produto')
 
 module.exports = class VendaController {
   static async cadastrar(req, res) {
@@ -36,7 +36,7 @@ module.exports = class VendaController {
           await venda_criada.addProduto(produto_id)
         }
 
-        res.redirect(`/vendas/${venda_id}`)
+        res.redirect('/vendas/:venda_id')
       })
       .catch((error) => {
         console.log(error)
@@ -58,9 +58,9 @@ module.exports = class VendaController {
     })
 
     if (venda) {
-      res.render('vendas/detalharVenda', { venda })
+      res.render('detalharVenda', { venda })
     } else {
-      res.redirect('/listarvendas')
+      res.redirect('listarvendas')
     }
   }
 
@@ -73,7 +73,7 @@ module.exports = class VendaController {
     }
   
     const produtos = await Produto.findAll({ raw: true });
-    res.render('vendas/editarVendas', { venda, produtos });
+    res.render('editarVendas', { venda, produtos });
   }
 
   static async atualizarVenda(req, res) {

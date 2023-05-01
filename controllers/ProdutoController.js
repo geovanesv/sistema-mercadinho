@@ -1,4 +1,4 @@
-const Produto = require('../model/Produto')
+const Produto = require('../models/Produto')
 
 module.exports = class UserController {
 
@@ -23,7 +23,6 @@ module.exports = class UserController {
     res.redirect('/allProdutos')
 
   }
-
   static async allProdutos(req, res) {
     const produtos = await Produto.findAll({ raw: true })
     res.render('produtos/listarprodutos', { produtos })

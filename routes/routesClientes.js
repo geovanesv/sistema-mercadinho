@@ -1,19 +1,18 @@
-const express = require('express');
-const clienteController = require('../controllers/ClienteController');
+const router = require('express').Router();
 
-const router = express.Router();
+const ClienteController = require('../controllers/ClienteController');
 
-router.get('/clientes', clienteController.getIndex);
+router.get('/', ClienteController.allClientes);
 
-router.get('/novocliente', clienteController.getNovoCliente);
+router.get('/novo', ClienteController.NovoCliente);
 
-router.post('/novocliente', clienteController.postNovoCliente);
+router.post('/novo', ClienteController.NovoClienteSave);
 
-router.get('/editarcliente/:clienteId', clienteController.getEditarCliente);
+router.get('/editar/:clienteId', ClienteController.editarCliente);
 
-router.post('/editarcliente', clienteController.postEditarCliente);
+router.post('/editar', ClienteController.updateCliente);
 
-router.post('/removercliente', clienteController.postRemoverCliente);
+router.post('/remover', ClienteController.removeCliente);
 
 module.exports = router;
 

@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize')
 const db = require('../db/conn')
-const User = require('./User')
+const Fornecedor = require('./Fornecedor')
 
 
 const Produto = db.define('Produto', {
@@ -22,8 +22,5 @@ const Produto = db.define('Produto', {
   },
   
 })
-
-//Produto.belongsTo(User)
-//User.hasMany(Produto)
 
 module.exports = Produto

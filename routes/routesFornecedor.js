@@ -1,13 +1,11 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
+const FornecedorController =  require('../controllers/FornecedorController')
 
-const fornecedorController = require('../controllers/fornecedorController');
-
-router.get('/fornecedores', fornecedorController.getIndex);
-router.get('/novofornecedor', fornecedorController.getNovoFornecedor);
-router.post('/novofornecedor', fornecedorController.postNovoFornecedor);
-router.get('/editarfornecedor/:fornecedorId', fornecedorController.getEditarFornecedor);
-router.post('/editarfornecedor', fornecedorController.postEditarFornecedor);
-router.post('/removerfornecedor', fornecedorController.postRemoverFornecedor);
+router.get('/', FornecedorController.allFornecedores);
+router.get('/novo', FornecedorController.NovoFornecedor);
+router.post('/novo', FornecedorController.NovoFornecedorSave);
+router.get('/editar/:fornecedorId', FornecedorController.editarFornecedor);
+router.post('/editar', FornecedorController.updateProdutoSave);
+router.post('/remover', FornecedorController.removeFornecedor);
 
 module.exports = router;

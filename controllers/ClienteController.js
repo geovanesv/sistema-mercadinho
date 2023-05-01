@@ -1,81 +1,58 @@
+
 const Cliente = require('../models/Cliente');
 
-exports.getIndex = (req, res, next) => {
-  Cliente.findAll()
-    .then(clientes => {
-      res.render('clientes/index', {
-        clientes: clientes,
-        pageTitle: 'Clientes',
-        path: '/clientes'
-      });
-    })
-    .catch(err => console.log(err));
-};
+module.exports = class ClienteController {
 
-exports.getNovoCliente = (req, res, next) => {
-  res.render('clientes/novo', {
-    pageTitle: 'Novo Cliente',
-    path: '/clientes/novo'
-  });
-};
+  
+  static async allClientes(req, res) {
+    const clientes = await Cliente.findAll({ raw: true })
+    res.render('clientes/allClientes', { clientes })
+  }
+  
+  static NovoCliente(req, res){
+    res.render('clientes/novo');
+  };
+  
+  static NovoClienteSave(req, res){
+    const cliente = {
+      nome: req.body.nome,
+      email: req.body.email,
+      telefone: req.body.telefone
+    }
+    Cliente.create(cliente)
+      .then(() => {
+      })
+      .catch(err => console.log(err));
+      res.redirect('/clientes/allClientes')
+  };
+  
+  static async editarCliente(req, res) {
+    const clienteId = req.params.clienteId;
+    const cliente = await Cliente.findOne({ where: { id: clienteId }, raw: true })
+    res.render('clientes/edit', { cliente })
 
-exports.postNovoCliente = (req, res, next) => {
-  const nome = req.body.nome;
-  const email = req.body.email;
-  const telefone = req.body.telefone;
-  Cliente.create({
-    nome: nome,
-    email: email,
-    telefone: telefone
-  })
-    .then(result => {
-      console.log('Cliente criado com sucesso!');
-      res.redirect('/clientes');
-    })
-    .catch(err => console.log(err));
-};
-
-exports.getEditarCliente = (req, res, next) => {
-  const clienteId = req.params.clienteId;
-  Cliente.findByPk(clienteId)
-    .then(cliente => {
-      res.render('clientes/editar', {
-        cliente: cliente,
-        pageTitle: 'Editar Cliente',
-        path: '/clientes/editar'
-      });
-    })
-    .catch(err => console.log(err));
-};
-
-exports.postEditarCliente = (req, res, next) => {
-  const clienteId = req.body.clienteId;
-  const nome = req.body.nome;
-  const email = req.body.email;
-  const telefone = req.body.telefone;
-  Cliente.findByPk(clienteId)
-    .then(cliente => {
-      cliente.nome = nome;
-      cliente.email = email;
-      cliente.telefone = telefone;
-      return cliente.save();
-    })
-    .then(result => {
-      console.log('Cliente atualizado com sucesso!');
-      res.redirect('/clientes');
-    })
-    .catch(err => console.log(err));
-};
-
-exports.postRemoverCliente = (req, res, next) => {
-  const clienteId = req.body.clienteId;
-  Cliente.findByPk(clienteId)
-    .then(cliente => {
-      return cliente.destroy();
-    })
-    .then(result => {
-      console.log('Cliente removido com sucesso!');
-      res.redirect('/clientes');
-    })
-    .catch(err => console.log(err));
-};
+  }
+  
+  static updateCliente = (req, res) => {
+    const clienteId = req.body.clienteId;
+    const cliente = {
+      nome: req.body.nome,
+      email: req.body.email,
+      telefone: req.body.telefone
+    }
+    Cliente.update(cliente,{where: {id: clienteId}})
+      .then(() => {
+        console.log('Cliente atualizado com sucesso!');
+        res.redirect('/clientes/allClientes');
+      })
+  };
+  
+  static async removeCliente(req, res) {
+    const clienteId = req.body.clienteId;
+    await Cliente.destroy({ where: { id: clienteId } })
+      .then(res.redirect('/clientes/allClientes'))
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+}

@@ -1,28 +1,29 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../db/conn');
+const { DataTypes } = require('sequelize')
+const db = require('../db/conn')
 const Produto = require('./Produto')
 
-const Fornecedor = sequelize.define('Fornecedor', {
+const Fornecedor = db.define('Fornecedor', {
   id: {
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
   nome: {
-    type: Sequelize.STRING(100),
+    type: DataTypes.STRING(100),
     allowNull: false
   },
   email: {
-    type: Sequelize.STRING(100),
+    type: DataTypes.STRING(100),
     allowNull: false
   },
   telefone: {
-    type: Sequelize.STRING(20),
+    type: DataTypes.STRING(20),
     allowNull: false
   }
 });
 
+Produto.belongsTo(Fornecedor)
 Fornecedor.hasMany(Produto)
 
 module.exports = Fornecedor;

@@ -1,15 +1,18 @@
-const express = require('express');
-const router = express.Router();
-const vendasController = require('../controllers/vendasController');
+const router = require('express').Router();
+const VendaController = require('../controllers/vendaController');
+const vendasController = require('../controllers/vendaController');
 
-router.get('/realizarvenda', vendasController.getRealizarVenda);
-router.post('/realizarvenda', vendasController.postRealizarVenda);
-router.get('/listarvendas', vendasController.getListarVendas);
+router.get('/realizarvenda', vendasController.cadastrar);
+router.post('/realizarvenda', vendasController.newVendaSave);
+
+router.get('/listarvendas', vendasController.listarVendas);
 
 // Rota para exibir a página de edição de venda
-router.get('/vendas/editarVendas/:id', VendaController.editarVenda);
+router.get('/editarVendas/:id', VendaController.editarVenda);
 
 // Rota para atualizar uma venda existente
-router.put('/updateVendas/:id', VendaController.atualizarVenda);
+router.put('/editarVendas/:id', VendaController.atualizarVenda);
+
+router.post('/remove',VendaController.removerVenda)
 
 module.exports = router;
