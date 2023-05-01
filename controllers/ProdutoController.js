@@ -20,7 +20,7 @@ module.exports = class UserController {
       }).catch((error) => {
         console.log(error)
       })
-    res.redirect('/allProdutos')
+    res.redirect('/produtos/allProdutos')
 
   }
   static async allProdutos(req, res) {
@@ -53,7 +53,7 @@ module.exports = class UserController {
   static async removeProduto(req, res) {
     const id = req.body.id
     await Produto.destroy({ where: { id: id } })
-      .then(res.redirect('/allProdutos'))
+      .then(res.redirect('/clientes/allProdutos'))
       .catch((err) => {
         console.log(err)
       })
