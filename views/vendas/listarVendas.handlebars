@@ -1,0 +1,27 @@
+
+<h1>Listagem de Vendas</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Produto</th>
+            <th>Fornecedor</th>
+            <th>Quantidade</th>
+            <th>Data da Venda</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each vendas}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.Cliente.nome}}</td>
+                <td>{{this.Produto.nome}}</td>
+                <td>{{this.Fornecedor.nome}}</td>
+                <td>{{this.quantidade}}</td>
+                <td>{{this.createdAt}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+

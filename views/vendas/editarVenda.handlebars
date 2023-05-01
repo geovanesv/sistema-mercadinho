@@ -1,0 +1,32 @@
+
+<h1>Editar Venda</h1>
+<form action="/updateVendas/{{venda.id}}" method="POST">
+    {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
+    <div class="form-group">
+        <label for="cliente">Cliente</label>
+        <input type="text" name="cliente" class="form-control" value="{{venda.cliente}}">
+    </div>
+    <div class="form-group">
+        <label for="data">Data</label>
+        <input type="date" name="data" class="form-control" value="{{venda.data}}">
+    </div>
+    <div class="form-group">
+        <label for="produto">Produto</label>
+        <select name="produto" class="form-control">
+            {{#each produtos}}
+            <option value="{{this.id}}" {{#ifCond this.id ../venda.produto_id}}selected{{/ifCond}}>{{this.nome}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="quantidade">Quantidade</label>
+        <input type="number" name="quantidade" class="form-control" value="{{venda.quantidade}}">
+    </div>
+    <div class="form-group">
+        <label for="preco">Preço</label>
+        <input type="number" name="preco" class="form-control" value="{{venda.preco}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>

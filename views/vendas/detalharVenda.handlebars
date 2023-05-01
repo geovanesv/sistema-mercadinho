@@ -1,0 +1,16 @@
+
+<h1>Detalhes da Venda</h1>
+<ul>
+<li><strong>ID:</strong> {{venda.id}}</li>
+<li><strong>Valor:</strong> {{venda.valor}}</li>
+<li><strong>Data:</strong> {{venda.data}}</li>
+<li><strong>Produtos:</strong></li>
+<ul>
+    {{#each venda.produtos}}
+    <li>{{this.nome}} ({{this.preco}})</li>
+    {{/each}}
+</ul>
+</ul>
+<a href="/listarVendas" style="margin-right: 20px;">Voltar</a>
+<a href="/vendas/editarVendas/{{venda.id}}">Editar</a>
+

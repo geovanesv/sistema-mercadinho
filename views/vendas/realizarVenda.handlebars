@@ -1,0 +1,34 @@
+
+<h1>Realizar Venda</h1>
+<form action="/vendas" method="POST">
+    <label for="cliente">Cliente:</label>
+    <select name="cliente" id="cliente">
+        {{#each clientes}}
+            <option value="{{this.id}}">{{this.nome}}</option>
+        {{/each}}
+    </select>
+    <br>
+
+    <label for="produto">Produto:</label>
+    <select name="produto" id="produto">
+        {{#each produtos}}
+            <option value="{{this.id}}">{{this.nome}}</option>
+        {{/each}}
+    </select>
+    <br>
+
+    <label for="fornecedor">Fornecedor:</label>
+    <select name="fornecedor" id="fornecedor">
+        {{#each fornecedores}}
+            <option value="{{this.id}}">{{this.nome}}</option>
+        {{/each}}
+    </select>
+    <br>
+
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" name="quantidade" id="quantidade">
+    <br>
+
+    <input type="submit" value="Salvar">
+</form>
+
