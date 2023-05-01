@@ -1,6 +1,3 @@
-# sistema-nodejs
-sistema no padrão MVC
-
 <h1 align="center" id="title">Sistema Mercadinho</h1>
 
 ## Índice
@@ -18,11 +15,8 @@ sistema no padrão MVC
 ## Visão geral
 Um sistema para cadastro de produtos, fornecedores, clientes e que realize vendas.
 
-### Links
-- URL: ⚠️
 
-
-## Meu processo
+## Processos
 
 ### Tecnologias
 - [Node.js](https://nodejs.org/en/)
