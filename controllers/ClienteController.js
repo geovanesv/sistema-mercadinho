@@ -29,10 +29,10 @@ module.exports = class ClienteController {
   static async editarCliente(req, res) {
     const id = req.params.id;
     const cliente = await Cliente.findOne({ where: { id: id }, raw: true })
-    res.render('clientes/editar', { cliente })
+    res.render('clientes/edit', { cliente })
   }
   
-  static updateCliente = (req, res) => {
+  static updateCliente(req, res){
     const clienteId = req.body.clienteId;
     const cliente = {
       nome: req.body.nome,

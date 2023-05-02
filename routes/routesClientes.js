@@ -8,9 +8,9 @@ router.get('/cadastrar', ClienteController.cadastrar);
 
 router.post('/novo', ClienteController.NovoClienteSave);
 
-router.get('/editar/:id', ClienteController.editarCliente);
+router.get('/edit/:id', ClienteController.editarCliente);
 
-router.post('/editar', ClienteController.updateCliente);
+router.post('/edit', ClienteController.updateCliente);
 
 router.post('/remover', ClienteController.removeCliente);
 
