@@ -31,7 +31,7 @@ module.exports = class UserController {
   static async updateProduto(req, res) {
     const id = req.params.id
     const produto = await Produto.findOne({ where: { id: id }, raw: true })
-    res.render('produtos/edit', { produto })
+    res.render('produtos/edit',{produto})
 
   }
 
@@ -44,7 +44,7 @@ module.exports = class UserController {
       preco: req.body.preco
     }
     await Produto.update(produto, { where: { id: id } })
-      .then(res.redirect('/allProdutos'))
+      .then(res.redirect('/produtos/allProdutos'))
       .catch((err) => {
         console.log(err)
       })
@@ -53,7 +53,7 @@ module.exports = class UserController {
   static async removeProduto(req, res) {
     const id = req.body.id
     await Produto.destroy({ where: { id: id } })
-      .then(res.redirect('/clientes/allProdutos'))
+      .then(res.redirect('/produtos/allProdutos'))
       .catch((err) => {
         console.log(err)
       })

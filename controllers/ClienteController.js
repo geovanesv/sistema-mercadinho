@@ -9,8 +9,8 @@ module.exports = class ClienteController {
     res.render('clientes/allClientes', { clientes })
   }
   
-  static NovoCliente(req, res){
-    res.render('clientes/novo');
+  static cadastrar(req, res){
+    res.render('clientes/cadastrar');
   };
   
   static NovoClienteSave(req, res){
@@ -27,10 +27,9 @@ module.exports = class ClienteController {
   };
   
   static async editarCliente(req, res) {
-    const clienteId = req.params.clienteId;
-    const cliente = await Cliente.findOne({ where: { id: clienteId }, raw: true })
-    res.render('clientes/edit', { cliente })
-
+    const id = req.params.id;
+    const cliente = await Cliente.findOne({ where: { id: id }, raw: true })
+    res.render('clientes/editar', { cliente })
   }
   
   static updateCliente = (req, res) => {

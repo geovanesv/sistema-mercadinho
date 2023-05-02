@@ -1,27 +1,51 @@
-
-<h1>Listagem de Vendas</h1>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Produto</th>
-            <th>Fornecedor</th>
-            <th>Quantidade</th>
-            <th>Data da Venda</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each vendas}}
-            <tr>
-                <td>{{this.id}}</td>
-                <td>{{this.Cliente.nome}}</td>
-                <td>{{this.Produto.nome}}</td>
-                <td>{{this.Fornecedor.nome}}</td>
-                <td>{{this.quantidade}}</td>
-                <td>{{this.createdAt}}</td>
-            </tr>
-        {{/each}}
-    </tbody>
-</table>
-
+<div class="main-w3layouts wrapper">
+	<h1 class="d-flex justify-content-center" style="margin-top: 30px;" >Lista de Vendas</h1>
+	<div class="main-agileinfolista ">
+		
+		<div class="agileits-top container-tabela">
+			<div class="d-flex justify-content-end"><a href="/vendas/realizarvenda" class="btn btn-success novoProd">Nova Venda</a></div>
+			
+			<table class="table table-bordered ">
+				<thead>
+					<tr class="titulo">
+                        <th scope="col">ID</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Fornecedor</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Data da Venda</th>
+						<th scope="col" colspan="2" class="acoes">Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each vendas}}
+						<tr>
+							<th scope="row">{{this.id}}</th>
+							    <td>{{this.Cliente.nome}}</td>
+                                <td>{{this.Produto.nome}}</td>
+                                <td>{{this.Fornecedor.nome}}</td>
+                                <td>{{this.quantidade}}</td>
+                                <td>{{this.createdAt}}</td>
+							<td class="btnAcoes">
+								<a href="vendas/editarVendas/{{this.id}}" class="btn btn-success">
+									Editar
+								</a>
+							</td>
+							<td class="btnAcoes">
+								<form action="vendass/remove" method="post">
+									<button type="submit" class="btn btn-danger">
+          								<input type="hidden" name="id" value="{{this.id}}">
+										Excluir
+									</button>
+								</form>
+							
+							</td>
+						</tr>
+					{{else}}
+					<h4 class="mt-2">Nenhuma venda realizada!</h4>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

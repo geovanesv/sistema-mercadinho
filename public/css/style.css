@@ -39,7 +39,13 @@ nav li a:hover{
 }
 
 .container-tabela{
-    margin-top: 5%;
+    margin-top: 0%;
     margin-left:15%;
+}
+
+.container-formulario{
+   
+    margin-left: 5%;
+    margin-top: 50px;
 }
 

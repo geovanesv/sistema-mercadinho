@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const VendaController = require('../controllers/vendaController');
-const vendasController = require('../controllers/vendaController');
+const VendaController = require('../controllers/VendaController');
+const vendasController = require('../controllers/VendaController');
 
 router.get('/realizarvenda', vendasController.cadastrar);
 router.post('/realizarvenda', vendasController.newVendaSave);

@@ -1,0 +1,29 @@
+<h1 style="margin-top: 15px;margin-bottom: 15px;">Editar Cliente: {{cliente.nome}}</h1>
+
+
+<form action="/clientes/editar" method="post" >
+    <input type="hidden" name="id" value="{{cliente.id}}" />
+    <div class="col-md-6">
+        <label for="nome" class="form-label">Nome:</label>
+        <input type="text" name="nome" value="{{cliente.nome}}" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label for="email">E-mail</label>
+        <input type="text" name="email" value="{{cliente.email}}" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label for="telefone" class="form-label">Preço:</label>
+        <input type="text" name="telefone" value="{{cliente.telefone}}" class="form-control" />
+    </div>              
+    <div class="row md-2" style="margin-top: 15px; margin-left:5px">
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+        </div>
+        <div class="col-sm-2">
+            <a class="btn btn-danger" href="/clientes/allClientes">Voltar</a>
+        </div>
+
+    </div>    
+</form>
+
+

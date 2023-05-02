@@ -2,13 +2,13 @@ const router = require('express').Router();
 
 const ClienteController = require('../controllers/ClienteController');
 
-router.get('/', ClienteController.allClientes);
+router.get('/allClientes', ClienteController.allClientes);
 
-router.get('/novo', ClienteController.NovoCliente);
+router.get('/cadastrar', ClienteController.cadastrar);
 
 router.post('/novo', ClienteController.NovoClienteSave);
 
-router.get('/editar/:clienteId', ClienteController.editarCliente);
+router.get('/editar/:id', ClienteController.editarCliente);
 
 router.post('/editar', ClienteController.updateCliente);
 

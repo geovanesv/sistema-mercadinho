@@ -4,11 +4,11 @@ module.exports = class FornecedorController {
 
   static async allFornecedores(req, res) {
     const fornecedores = await Fornecedor.findAll({ raw: true })
-    res.render('/fornecedores/allFornecedores', { fornecedores })
+    res.render('fornecedores/allFornecedores', { fornecedores })
   }
 
   static async NovoFornecedor(req, res) {
-    res.render('/fornecedores/novo');
+    res.render('fornecedores/novo');
   };
 
   static async NovoFornecedorSave(req, res) {
