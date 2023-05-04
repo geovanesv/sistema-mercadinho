@@ -1,0 +1,30 @@
+
+<div style="margin-left: 30%;">
+    <h1 style="margin-top: 15px;margin-bottom: 15px;">Editar usuario: {{usuario.nome}}</h1>
+    <form action="/usuarios/edit" method="post" >
+        <input type="hidden" name="id" value="{{usuario.id}}" />
+        <div class="col-md-6">
+            <label for="nome" class="form-label">Nome:</label>
+            <input type="text" name="nome" value="{{usuario.nome}}" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" name="email" value="{{usuario.email}}" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="password" class="form-label">Senha:</label>
+            <input type="password" name="password" value="{{usuario.password}}" class="form-control" />
+        </div>              
+        <div class="row md-2" style="margin-top: 15px; margin-left:5px">
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+            </div>
+            <div class="col-sm-2">
+                <a class="btn btn-danger" href="/usuarios/allUsuarios">Voltar</a>
+            </div>
+
+        </div>    
+    </form>
+</div>
+
+
