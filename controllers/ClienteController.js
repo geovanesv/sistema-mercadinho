@@ -33,13 +33,13 @@ module.exports = class ClienteController {
   }
   
   static updateCliente(req, res){
-    const clienteId = req.body.clienteId;
+    const id = req.body.id;
     const cliente = {
       nome: req.body.nome,
       email: req.body.email,
       telefone: req.body.telefone
     }
-    Cliente.update(cliente,{where: {id: clienteId}})
+    Cliente.update(cliente,{where: {id: id}})
       .then(() => {
         console.log('Cliente atualizado com sucesso!');
         res.redirect('/clientes/allClientes');
@@ -47,8 +47,8 @@ module.exports = class ClienteController {
   };
   
   static async removeCliente(req, res) {
-    const clienteId = req.body.clienteId;
-    await Cliente.destroy({ where: { id: clienteId } })
+    const id = req.body.id;
+    await Cliente.destroy({ where: { id: id } })
       .then(res.redirect('/clientes/allClientes'))
       .catch((err) => {
         console.log(err)

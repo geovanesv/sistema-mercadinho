@@ -23,14 +23,14 @@
 							<th scope="row">{{this.id}}</th>
 							<td>{{this.nome}}</td>
 							<td>{{this.email}}</td>
-							<td>R$ {{this.telefone}}</td>
+							<td>{{this.telefone}}</td>
 							<td class="btnAcoes">
 								<a href="/clientes/edit/{{this.id}}" class="btn btn-success">
 									Editar
 								</a>
 							</td>
 							<td class="btnAcoes">
-								<form action="/clientes/remove" method="post">
+								<form action="/clientes/remover" method="post">
 									<button type="submit" class="btn btn-danger">
           								<input type="hidden" name="id" value="{{this.id}}">
 										Excluir
