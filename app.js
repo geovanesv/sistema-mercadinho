@@ -8,6 +8,7 @@ const ClienteRoutes = require('./routes/routesClientes')
 const FornecedorRoutes = require('./routes/routesFornecedor')
 const VendaRoutes = require('./routes/routesVenda')
 const ProdutosRoutes = require('./routes/routesProdutos')
+const UsuariosRoutes = require('./routes/routesUsuarios')
 
 
 //Autor Geovane Araujo
@@ -31,6 +32,7 @@ app.use(express.static('public'));
 
 app.get('/',function (req, res){ res.render('index');});
 app.use('/produtos',ProdutosRoutes);
+app.use('/usuarios',UsuariosRoutes);
 app.use('/fornecedores',FornecedorRoutes);
 app.use('/clientes',ClienteRoutes);
 app.use('/vendas',VendaRoutes);

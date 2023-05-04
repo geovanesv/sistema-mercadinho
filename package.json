@@ -1,7 +1,7 @@
 {
   "name": "sistema-nodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "<h1 align=\"center\" id=\"title\">Sistema Mercadinho</h1>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,9 +11,18 @@
   "author": "Geovane Araujo",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-handlebars": "^7.0.5",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.31.0"
-  }
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.31.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geovanesv/sistema-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/geovanesv/sistema-nodejs/issues"
+  },
+  "homepage": "https://github.com/geovanesv/sistema-nodejs#readme"
 }
