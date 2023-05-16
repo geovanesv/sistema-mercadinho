@@ -4,6 +4,12 @@ const Fornecedor = require('./Fornecedor')
 
 
 const Produto = db.define('Produto', {
+  idProduto:{
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true
+  },
   nome: {
     type: DataTypes.STRING,
     required: true,
@@ -20,6 +26,12 @@ const Produto = db.define('Produto', {
     required: true,
     allowNull: false
   },
+
+  qt_produto: {
+    type: DataTypes.INTEGER,
+    required: true,
+    allowNull: false
+  }
   
 })
 

@@ -1,49 +1,66 @@
-<div class="container mt-4 container-formulario">
-    <div class="card">
-        <div class="card-header">
-            Cadastrar Produto
-        </div>
-        <div class="card-body">
-            <form action="/produtos/add" method="POST">
-                <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input type="text" class="form-control"  name="nome">
-                </div>
-                <div class="form-group">
-                    <label for="categoria">Categoria</label>
-                    <select name="categoria" id="categoria" class="form-control">
-                        <option value="Alimentos">Alimentos</option>
-                        <option value="Congelados e frios">Congelados e frios</option>
-                        <option value="Limpeza">Limpeza</option>
-                        <option value="Higiene pessoal">Higiene pessoal</option>
-                        <option value="Bebidas">Bebidas</option>
-                        <option value="Papelaria">Papelaria</option>
-                        <option value="Variedades">Variedades</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="preco">Preço</label>
-                    <input type="text" class="form-control" name="preco">
-                </div>            
-                    <!--
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
 
-                    -->
-                
-                <div class="row md-2" style="margin-top: 15px; margin-left:5px">
-                    <div class="col-sm-2">
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
-                    </div>
-                    <div class="col-sm-2">
-                        <a class="btn btn-danger" href="/produtos/allProdutos">Voltar</a>
-                    </div>
 
+
+{{> menu}}
+      <title>Cadastrar Produto</title>
+      <link href="/stylesheets/reset.css" rel="stylesheet" type="text/css">
+      <link href="/stylesheets/forms.css" rel="stylesheet" type="text/css">
+      <link href="/stylesheets/estilo_home.css" rel="stylesheet" type="text/css">
+      <link href="/stylesheets/menu.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    
+    <div id="conteudo">
+          <h2> Cadastrar Produto</h2>
+          <br>
+
+        <div id="result">
+            <form method="post" action="/produtos/add">
+                <div class="form-row">
+                    <div class="form-group  md-col-8">
+                        <label for="nome">Nome</label>
+                        <input id="nome" class="form-control" name="nome" required="true"/>
+                    </div>
                 </div>
-            </form>                
+                <div class="form-row">
+                    <div class="form-group  md-col-8">
+                        <label for="categoria">Categoria</label>
+                        <select name="categoria" id="categoria" class="form-control">
+                            <option value="Alimentos">Alimentos</option>
+                            <option value="Congelados e frios">Congelados e frios</option>
+                            <option value="Limpeza">Limpeza</option>
+                            <option value="Higiene pessoal">Higiene pessoal</option>
+                            <option value="Bebidas">Bebidas</option>
+                            <option value="Papelaria">Papelaria</option>
+                            <option value="Variedades">Variedades</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group  md-col-8">
+                        <label for="fornecedor">Fornecedor</label>
+                        <select name="id" class="form-control">
+                            {{#each fornecedores}}
+                                <option value="{{this.idFornecedor}}">{{this.nome}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group md-col-2" >
+                        <label for="preco">Preço</label>
+                        <input id="preco" name="preco" class="form-control" style="width:100%" required="true" /> 
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group md-col-2">
+                        <label for="qt_produto">Quantidade</label>
+                        <input id="qt_produto" name="qt_produto" type="number" class="form-control" style="width:100%"/> 
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" > Cadastrar </button>     
+
+            </form>
         </div>
-    </div>
-    {{#if message}}
-    <h4 class="alert alert-danger mt4">{{message}}</h4>
-    {{/if}}
-</div>
+          
+    </div>  

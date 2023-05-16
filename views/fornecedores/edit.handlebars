@@ -1,0 +1,63 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"
+	type="text/javascript"></script>
+
+{{> menu}}
+<div style="margin-left: 30%;">
+    <h1 style="margin-top: 15px;margin-bottom: 15px;">Editar Fornecedor: {{fornecedor.nome}}</h1>
+    <form action="/fornecedores/edit" method="post">
+        <input type="hidden" name="id" value="{{fornecedor.idFornecedor}}" />
+        <div class="col-md-6">
+            <label for="nome" class="form-label">Nome:</label>
+            <input type="text" name="nome" value="{{fornecedor.nome}}" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="email">Email</label>
+            <input type="text" name="email" value="{{fornecedor.email}}" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label for="telefone" class="form-label">Preço:</label>
+            <input type="text" name="telefone" value="{{fornecedor.telefone}}" class="form-control" />
+        </div>
+
+
+
+        <div class="col-md-6" style="margin-top: 15px; margin-left:5px">
+            <button id="btnEditar" type="button" class="btn btn-primary" data-toggle="modal" data-target="#mymodal">
+                Salvar
+                <img src="/imagens/editar-2.png" alt="Editar-fonecedor" height="22px">
+            </button>
+
+            <button type="submit" class="btn btn-secondary">
+                Voltar
+                <a href="/fornecedores/allFornecedores"></a>
+            </button>
+        </div>
+
+
+
+        <div id="mymodal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Editar Fornecedor?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Deseja Editar os dados?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">
+                            Salvar Dados
+                            <img src="/imagens/editar.png" alt="Editar-fornecedor" height="22px">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

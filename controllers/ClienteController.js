@@ -28,7 +28,7 @@ module.exports = class ClienteController {
   
   static async editarCliente(req, res) {
     const id = req.params.id;
-    const cliente = await Cliente.findOne({ where: { id: id }, raw: true })
+    const cliente = await Cliente.findOne({ where: { idCliente: id }, raw: true })
     res.render('clientes/edit', { cliente })
   }
   
@@ -39,7 +39,7 @@ module.exports = class ClienteController {
       email: req.body.email,
       telefone: req.body.telefone
     }
-    Cliente.update(cliente,{where: {id: id}})
+    Cliente.update(cliente,{where: {idCliente: id}})
       .then(() => {
         console.log('Cliente atualizado com sucesso!');
         res.redirect('/clientes/allClientes');
@@ -48,7 +48,7 @@ module.exports = class ClienteController {
   
   static async removeCliente(req, res) {
     const id = req.body.id;
-    await Cliente.destroy({ where: { id: id } })
+    await Cliente.destroy({ where: { idCliente: id } })
       .then(res.redirect('/clientes/allClientes'))
       .catch((err) => {
         console.log(err)

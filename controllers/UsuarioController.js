@@ -20,7 +20,8 @@ module.exports = class UsuarioController {
       }).catch((error) => {
         console.log(error)
       })
-    res.redirect('/usuarios/allUsuarios')
+    //redirecionar para a lista de usuarios
+    //res.redirect('/usuarios/allUsuarios')
 
   }
   static async allUsuarios(req, res) {
@@ -58,6 +59,33 @@ module.exports = class UsuarioController {
         console.log(err)
       })
   }
+
+
+  static async validarUsuario(email, senha ,req, res){
+
+    var connection = db();
+    
+    connection.query("SELECT email from usuarios where email =? and senha=?",[email, senha],
+      function(error, result){
+
+        if(error){
+          throw error;
+        }
+        
+        if (result[0] != undefined ){
+          req.session.autorizado = true;
+          req.session.nome = result[0].nome;
+          res.render('home', {usuario: req.session.nome});
+        }
+        else{
+          res.redirect('/');
+        }
+
+      }
+    );
+  };
+
+
 
 
 

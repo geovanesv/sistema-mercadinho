@@ -3,7 +3,7 @@ const db = require('../db/conn')
 const Produto = require('./Produto')
 
 const Fornecedor = db.define('Fornecedor', {
-  id: {
+  idFornecedor: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
@@ -23,7 +23,8 @@ const Fornecedor = db.define('Fornecedor', {
   }
 });
 
-Produto.belongsTo(Fornecedor)
-Fornecedor.hasMany(Produto)
+//relacionamentos
+Produto.belongsTo(Fornecedor,{foreignKey: 'idFornecedor'}) //um produto pertece a um unico fornecedor
+Fornecedor.hasMany(Produto,{foreignKey: 'idFornecedor'}) //um fornecedor pode ter varios produto
 
 module.exports = Fornecedor;

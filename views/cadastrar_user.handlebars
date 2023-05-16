@@ -1,0 +1,46 @@
+{{!-- esse é a tela de cadastro de usuario que será chamado a partir da tela de login --}}
+
+<title>Sistema Node| Cadastro</title>
+</head>
+
+<body>
+
+
+<div class="content">
+
+
+
+<form id="formulario" action="/produtos/add" method="POST" >
+
+<div id="icon-user"></div><input id="txtNome" name="nome" class="inputText"  required placeholder="Nome"> <div class="clear"></div>
+<div id="icon-email"></div><input id="txtEmail" name="email" class="inputText"  required placeholder="Email"> <div class="clear"></div>
+
+<div id="icon-password"></div><input id="txtSenha" name="senha" class="inputText" type="password" required placeholder="SENHA">
+<div class="clear"></div>
+
+<button id="btnEntrar"name="btnEntrar" type="submit"> Cadastrar </button><br>
+
+
+<div class="container-senha">
+
+<div id="esquerda">
+<input id="chkLembrar" name="chkLembrar" value="Sim" type="checkbox" /> 
+</div>
+
+<div id="direita">
+<span > <a  href="/" class="lksenha"> Voltar para Login? </span></a> <br>
+</div>
+
+<div class="clear"> </div>
+
+
+
+</div>
+
+</div>
+</form>
+
+
+</body>
+</html>
+

@@ -1,9 +1,15 @@
 const Produto = require('../models/Produto')
+const Fornecedor = require('../models/Fornecedor')
 
 module.exports = class UserController {
 
-  static cadastrar(req, res) {
-    res.render('produtos/cadastrar')
+  static async cadastrar(req, res) {
+    const fornecedores = await Fornecedor.findAll({ raw: true });
+    res.render('produtos/cadastrar',{fornecedores})
+  }
+  
+  static saidaProduto(req, res) {
+    res.render('produtos/saidaProduto')
   }
 
   
@@ -11,7 +17,9 @@ module.exports = class UserController {
     const produto = {
       nome: req.body.nome,
       categoria: req.body.categoria,
-      preco: req.body.preco,
+      idFornecedor: req.body.id,
+      preco: req.body.preco, 
+      qt_produto: req.body.qt_produto
     }
 
     await Produto.create(produto)
@@ -30,7 +38,7 @@ module.exports = class UserController {
 
   static async updateProduto(req, res) {
     const id = req.params.id
-    const produto = await Produto.findOne({ where: { id: id }, raw: true })
+    const produto = await Produto.findOne({ where: { idProduto: id }, raw: true })
     res.render('produtos/edit',{produto})
 
   }
@@ -43,7 +51,7 @@ module.exports = class UserController {
       categoria: req.body.categoria,
       preco: req.body.preco
     }
-    await Produto.update(produto, { where: { id: id } })
+    await Produto.update(produto, { where: { idProduto: id } })
       .then(res.redirect('/produtos/allProdutos'))
       .catch((err) => {
         console.log(err)
@@ -52,7 +60,7 @@ module.exports = class UserController {
 
   static async removeProduto(req, res) {
     const id = req.body.id
-    await Produto.destroy({ where: { id: id } })
+    await Produto.destroy({ where: { idProduto: id } })
       .then(res.redirect('/produtos/allProdutos'))
       .catch((err) => {
         console.log(err)
