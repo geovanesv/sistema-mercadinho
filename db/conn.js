@@ -14,3 +14,5 @@ catch (error) {
 }
 
 module.exports = sequelize
+
+

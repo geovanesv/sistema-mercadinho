@@ -1,10 +1,14 @@
 const Venda = require('../models/Venda')
 const Produto = require('../models/Produto')
+const Cliente = require('../models/Cliente')
+const Fornecedor = require('../models/Fornecedor')
 
 module.exports = class VendaController {
   static async cadastrar(req, res) {
     const produtos = await Produto.findAll({ raw: true })
-    res.render('vendas/realizarVenda', { produtos })
+    const clientes = await Cliente.findAll({ raw: true })
+    const fornecedores = await Fornecedor.findAll({ raw: true })
+    res.render('vendas/realizarVenda', { produtos, clientes, fornecedores })
   }
 
   static async newVendaSave(req, res) {
@@ -35,8 +39,7 @@ module.exports = class VendaController {
           const produto_id = produtos[i]
           await venda_criada.addProduto(produto_id)
         }
-
-        res.redirect('/vendas/:venda_id')
+        res.redirect('/vendas/listarVendas')
       })
       .catch((error) => {
         console.log(error)
@@ -46,7 +49,10 @@ module.exports = class VendaController {
 
   static async listarVendas(req, res) {
     const vendas = await Venda.findAll({ raw: true })
-    res.render('vendas/listarVendas', { vendas })
+    const produtos = await Produto.findAll({ raw: true })
+    const clientes = await Cliente.findAll({ raw: true })
+    const fornecedores = await Fornecedor.findAll({ raw: true })
+    res.render('vendas/listarVendas', {vendas, produtos, clientes, fornecedores })
   }
 
   static async detalharVenda(req, res) {
@@ -57,11 +63,7 @@ module.exports = class VendaController {
       include: { model: Produto }
     })
 
-    if (venda) {
-      res.render('detalharVenda', { venda })
-    } else {
-      res.redirect('listarvendas')
-    }
+    
   }
 
   static async editarVenda(req, res) {

@@ -1,23 +1,70 @@
-<div style="margin-left: 15%;">
+{{!-- esse index será a Home --}}
 
-<div class="container mt-4">
-    <div class="jumbotron justify-content-center"style="text-align: center;" >
-        <h1 class="display-5">Bem-vindo ao sistema <br> de cadastro de produtos </h1>
-        <p class="lead">Esse projeto foi criado utilizando: Nodejs, Express, sequelize, Boostrap 4 e MySQL!</p>
-        <hr class="my-4">
-        
-            <div class="row">
-                <div class="col">
-                    <p>Visite o meu github</p>
-                    <a class="btn btn-dark btn-lg" href="https://github.com/geovanesv" role="button" target="_blank">Github</a>
-                </div>
-                <div class="col">
-                    <p>Visite o meu Linkedin</p>
-                    <a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/geovane-araujo-07str" role="button" target="_blank">Linkedin</a>
-                </div>
+<title>Sistema Node | Home</title>
+  
+   {{> menu}}
+   
+      
+<div id="conteudo"> 
+    <h1> Menu Rápido </h1>
+    <div id="conteudo_item_menu">
+
+        <div class="item">
+            <div class="imagem">
+                <a href="/produtos/cadastrar"><figure id="item_new"  >
+                    <img src="../imagens/icon-new.png" alt="Novo Produto">
+                </figure></a>
             </div>
-       
+            <div class="legenda">
+                <p ><a href="/produtos/cadastrar">Novo Produto</a></p>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+            <div class="imagem" >
+                <a href="#">
+                    <figure id="entradaxml">
+                        <img src="../imagens/icon-entrada.png" alt="Entrada XML">
+                    </figure>
+                </a>
+            </div>
+            <div class="legenda">
+                <p><a href="#"> Entrada de Produto</a></p> 
+            </div>
+        </div>
+
+
+        <div class="item">
+            <div class="imagem" > 
+                <a href="/produtos/saidaProduto">
+                    <figure id="saida" >
+                        <img src="../imagens/icon-saida.png" alt="Saída de Produto">
+                    </figure>
+                </a>
+            </div>
+            <div class="legenda">
+                <p><a href="/produtos/saidaProduto"> Saída de Produto</p> </a>
+            </div>
+        </div>
+
+
+
+        <div class="item">
+            <div class ="imagem"> 
+                <a href="fornecedores/cadastrar">
+                    <figure>
+                        <img src='../imagens/icon-fornecedor.png' alt="Novo Fornecedor">
+                    </figure>
+                </a>
+            </div>
+            <div class="legenda">
+                <p class="legenda"><a href="fornecedores/cadastrar"> Novo Fornecedor</a></p> 
+            </div>
+        </div>
+    
     </div>
 </div>
 
-</div>
+

@@ -8,7 +8,7 @@ module.exports = class FornecedorController {
   }
 
   static async NovoFornecedor(req, res) {
-    res.render('fornecedores/novo');
+    res.render('fornecedores/cadastrar');
   };
 
   static async NovoFornecedorSave(req, res) {
@@ -27,20 +27,20 @@ module.exports = class FornecedorController {
   };
   
   static async editarFornecedor(req, res) {
-    const fornecedorId = req.params.fornecedorId;
-    const fornecedor = await Fornecedor.findOne({ where: { id: fornecedorId }, raw: true })
-    res.render('/fornecedores/edit', { fornecedor })
+    const id = req.params.id;
+    const fornecedor = await Fornecedor.findOne({ where: { idFornecedor: id }, raw: true })
+    res.render('fornecedores/edit', { fornecedor })
 
   }
   static async updateProdutoSave(req, res) {
-    const fornecedorId = req.body.fornecedorId;
+    const id = req.body.id;
     const fornecedor = { 
       nome: req.body.nome,
       email: req.body.email,
       telefone: req.body.telefone
     }
 
-    await Fornecedor.update(fornecedor, { where: { id: fornecedorId } })
+    await Fornecedor.update(fornecedor, { where: { idFornecedor:id } })
       .then(res.redirect('/fornecedores/allFornecedores'))
       .catch((err) => {
         console.log(err)
@@ -49,7 +49,7 @@ module.exports = class FornecedorController {
 
   static async removeFornecedor(req, res) {
     const id = req.body.id
-    await Fornecedor.destroy({ where: { id: id } })
+    await Fornecedor.destroy({ where: { idFornecedor: id } })
       .then(res.redirect('/fornecedores/allFornecedores'))
       .catch((err) => {
         console.log(err)

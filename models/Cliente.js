@@ -3,7 +3,7 @@ const db = require('../db/conn')
 
 
 const Cliente = db.define('Cliente', {
-  id: {
+  idCliente: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
