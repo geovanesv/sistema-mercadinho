@@ -1,14 +1,135 @@
 
 
 
-{{> menu}}
-      <title>Cadastrar Produto</title>
-      <link href="/stylesheets/reset.css" rel="stylesheet" type="text/css">
-      <link href="/stylesheets/forms.css" rel="stylesheet" type="text/css">
-      <link href="/stylesheets/estilo_home.css" rel="stylesheet" type="text/css">
-      <link href="/stylesheets/menu.css" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    
+
+
+ <!-- CSS -->
+<link href="/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
+
+      <div class="logo">
+        <a href="/dashboard" class="simple-text logo-normal">
+          Sistema Mercadinho
+        </a>
+      </div>
+      
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="/home">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/produtos/allProdutos">
+              <i class="material-icons">store</i>
+              <p>Produtos</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/fornecedores/allFornecedores">
+              <i class="material-icons">storage</i>
+              <p>Fornecedores</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/clientes/allClientes">
+              <i class="material-icons">group</i>
+              <p>Clientes</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/usuarios/allusuarios">
+              <i class="material-icons">person_add</i>
+              <p>Usuarios</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/vendas/listarVendas">
+              <i class="material-icons">thumbs_up_down</i>
+              <p>Vendas</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+{{>navbar}}
+
+<!-- Cadastro de produtos -->
+
+<div class="content" style=" margin-left: 180px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card" >
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Cadastrar Produto</h4>
+                        <p class="card-category">Produtos</p>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/produtos/add">
+                        <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Nome</label>
+                                <input type="text" class="form-control" name="nome" required="true">
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Categoria</label>
+                                <select name="categoria" id="categoria" class="form-control" required="true">
+                                    <option value="Alimentos">Alimentos</option>
+                                    <option value="Congelados e frios">Congelados e frios</option>
+                                    <option value="Limpeza">Limpeza</option>
+                                    <option value="Higiene pessoal">Higiene pessoal</option>
+                                    <option value="Bebidas">Bebidas</option>
+                                    <option value="Papelaria">Papelaria</option>
+                                    <option value="Variedades">Variedades</option>
+                                </select>
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Fornecedor</label>
+                                <select name="id" class="form-control" required="true">
+                                    {{#each fornecedores}}
+                                        <option value="{{this.idFornecedor}}">{{this.nome}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Preço</label>
+                                <input id="preco" name="preco" class="form-control" style="width:100%" required="true" /> 
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Quantidade</label>
+                                <input id="qt_produto" name="qt_produto" type="number" class="form-control" style="width:100%" required="true" /> 
+                            </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
+                        <a class="btn btn-secundary pull-left" href="/produtos/allProdutos">Voltar </a>
+                        <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{!-- 
     <div id="conteudo">
           <h2> Cadastrar Produto</h2>
           <br>
@@ -63,4 +184,4 @@
             </form>
         </div>
           
-    </div>  
+    </div>   --}}

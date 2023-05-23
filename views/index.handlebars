@@ -1,18 +1,77 @@
 {{!-- esse index será a Home --}}
 
-<title>Sistema Node | Home</title>
-  
-   {{> menu}}
-   
+<title>Sistema Mercadinho</title>
+    <link href="/stylesheets/reset.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/menu.css" type="text/css" rel="stylesheet">
+    <link href="/stylesheets/estilo_home.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <script  type="text/javascript" src="/javascripts/jquery-3.2.0.min.js"></script>
+    <script  type="text/javascript" src="/javascripts/typeahead.min.js"></script>
+    <script type="text/javascript" src="/javascripts/script.js"></script>
+ 
+ <!-- CSS -->
+<link href="/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
+
+      <div class="logo">
+        <a href="/home" class="simple-text logo-normal">
+          Sistema Mercadinho
+        </a>
+      </div>
       
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/home">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/produtos/allProdutos">
+              <i class="material-icons">store</i>
+              <p>Produtos</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/fornecedores/allFornecedores">
+              <i class="material-icons">storage</i>
+              <p>Fornecedores</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/clientes/allClientes">
+              <i class="material-icons">group</i>
+              <p>Clientes</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/usuarios/allusuarios">
+              <i class="material-icons">person_add</i>
+              <p>Usuarios</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/vendas/listarVendas">
+              <i class="material-icons">thumbs_up_down</i>
+              <p>Vendas</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
 <div id="conteudo"> 
-    <h1> Menu Rápido </h1>
     <div id="conteudo_item_menu">
 
         <div class="item">
             <div class="imagem">
                 <a href="/produtos/cadastrar"><figure id="item_new"  >
-                    <img src="../imagens/icon-new.png" alt="Novo Produto">
+                    <img src="../imagens/cadastro.png" alt="Novo Produto">
                 </figure></a>
             </div>
             <div class="legenda">
@@ -26,7 +85,7 @@
             <div class="imagem" >
                 <a href="#">
                     <figure id="entradaxml">
-                        <img src="../imagens/icon-entrada.png" alt="Entrada XML">
+                        <img src="../imagens/caixa-de-entrada.png" alt="Entrada XML">
                     </figure>
                 </a>
             </div>
@@ -40,7 +99,7 @@
             <div class="imagem" > 
                 <a href="/produtos/saidaProduto">
                     <figure id="saida" >
-                        <img src="../imagens/icon-saida.png" alt="Saída de Produto">
+                        <img src="../imagens/saida.png" alt="Saída de Produto">
                     </figure>
                 </a>
             </div>
@@ -55,7 +114,7 @@
             <div class ="imagem"> 
                 <a href="fornecedores/cadastrar">
                     <figure>
-                        <img src='../imagens/icon-fornecedor.png' alt="Novo Fornecedor">
+                        <img src='../imagens/acordo.png' alt="Novo Fornecedor">
                     </figure>
                 </a>
             </div>

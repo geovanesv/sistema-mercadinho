@@ -23,6 +23,12 @@ module.exports.get = (req, res, next) => {
     res.render('index');
 }
 
+module.exports.home = (req, res, next) => {
+    res.render('home');
+}
+
+
+
 module.exports.cadastrar = (req, res, next) => {
     res.render('cadastrar_user');
 }

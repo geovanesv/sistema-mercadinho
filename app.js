@@ -9,7 +9,7 @@ const FornecedorRoutes = require('./routes/routesFornecedor')
 const VendaRoutes = require('./routes/routesVenda')
 const ProdutosRoutes = require('./routes/routesProdutos')
 const UsuariosRoutes = require('./routes/routesUsuarios')
-const indexRoutes = require('./routes/login')
+const indexRoutes = require('./routes/inicio')
 
 
 //Autor Geovane Araujo

@@ -1,4 +1,113 @@
-{{> menu}}
+
+
+ <!-- CSS -->
+<link href="/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
+
+	<div class="logo">
+	<a href="/home" class="simple-text logo-normal">
+		Sistema Mercadinho
+	</a>
+	</div>
+	
+	<div class="sidebar-wrapper">
+		<ul class="nav">
+			<li class="nav-item ">
+			<a class="nav-link" href="/">
+				<i class="material-icons">dashboard</i>
+				<p>Dashboard</p>
+			</a>
+			</li>
+			<li class="nav-item ">
+			<a class="nav-link" href="/produtos/allProdutos">
+				<i class="material-icons">store</i>
+				<p>Produtos</p>
+			</a>
+			</li>
+			<li class="nav-item ">
+			<a class="nav-link" href="/fornecedores/allFornecedores">
+				<i class="material-icons">storage</i>
+				<p>Fornecedores</p>
+			</a>
+			</li>
+			<li class="nav-item ">
+			<a class="nav-link" href="/clientes/allClientes">
+				<i class="material-icons">group</i>
+				<p>Clientes</p>
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="/usuarios/allusuarios">
+				<i class="material-icons">person_add</i>
+				<p>Usuarios</p>
+			</a>
+			</li>
+			<li class="nav-item active">
+			<a class="nav-link" href="/vendas/listarVendas">
+				<i class="material-icons">thumbs_up_down</i>
+				<p>Vendas</p>
+			</a>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+{{>navbar}}
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
+
+      <div class="logo">
+        <a href="/home" class="simple-text logo-normal">
+          Sistema Mercadinho
+        </a>
+      </div>
+      
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="/home">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/produtos/allProdutos">
+              <i class="material-icons">Produtos</i>
+              <p>Produtos</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/fornecedores/allFornecedores">
+              <i class="material-icons">Fornecedores</i>
+              <p>Fornecedores</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/clientes/allClientes">
+              <i class="material-icons">Clientes</i>
+              <p>Clientes</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/usuarios/allusuarios">
+              <i class="material-icons">usuarios</i>
+              <p>Usuarios</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/vendas/listarVendas">
+              <i class="material-icons">Vendas</i>
+              <p>Vendas</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+{{>navbar}}
+
 <h1>Editar Venda</h1>
 <form action="/updateVendas/{{venda.id}}" method="POST">
     {{#if error}}

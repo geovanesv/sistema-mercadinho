@@ -7,12 +7,14 @@ html {
 body {
 	padding-top: 57px;
 	padding-left: 170px;
+
 }
 
 /*Div Central*/
 #conteudo {
 	padding: 20px;
 	font-size:14px;
+
 }
 
 
@@ -32,15 +34,18 @@ body {
 
 .item {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column row;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	width: 100px;
-	height: 100px;
-	border: 1px solid #ccc;
-	margin: 5px;
-	border-radius: 3px;
+	width: 500px;
+	height: 120px;
+	border: 1px solid #14005c;
+	background-color: #ffffff;
+	margin: 15px;
+	border-radius: 20px;
 	padding: 3px;
+	box-shadow: 5px 10px 6px #00000056;
 }
 
 figure img {

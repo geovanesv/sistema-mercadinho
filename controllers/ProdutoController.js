@@ -33,13 +33,15 @@ module.exports = class UserController {
   }
   static async allProdutos(req, res) {
     const produtos = await Produto.findAll({ raw: true })
-    res.render('produtos/listarprodutos', { produtos })
+    const fornecedores = await Fornecedor.findAll({ raw: true })
+    res.render('produtos/listarprodutos', { produtos, fornecedores })
   }
 
   static async updateProduto(req, res) {
     const id = req.params.id
     const produto = await Produto.findOne({ where: { idProduto: id }, raw: true })
-    res.render('produtos/edit',{produto})
+    const fornecedores = await Fornecedor.findAll({ raw: true })
+    res.render('produtos/edit',{produto, fornecedores})
 
   }
 

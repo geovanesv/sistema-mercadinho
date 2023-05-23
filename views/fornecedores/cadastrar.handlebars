@@ -1,39 +1,101 @@
-{{> menu}}
-    <div class="container mt-4 container-formulario">
-        <div class="card">
-            <div class="card-header">
-                Cadastrar Produto
-            </div>
-            <div class="card-body">
-                <form action="/fornecedores/cadastrar" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" class="form-control"  name="nome" required="true">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="text" class="form-control" name="email" required="true">
-                    </div>            
-                    
-                    <div class="form-group">
-                        <label for="telefone">Telefone</label>
-                        <input type="text" class="form-control" name="telefone" required="true">
-                    </div>            
-                    
-                    <div class="row md-2" style="margin-top: 15px; margin-left:5px">
-                        <div class="col-sm-2">
-                            <button type="submit" class="btn btn-primary">Cadastrar</button>
-                        </div>
-                        <div class="col-sm-2">
-                            <a class="btn btn-danger" href="produtos/listarprodutos">Voltar</a>
-                        </div>
 
+
+ <!-- CSS -->
+<link href="/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
+
+	<div class="logo">
+	<a href="/" class="simple-text logo-normal">
+		Sistema Mercadinho
+	</a>
+	</div>
+	
+	<div class="sidebar-wrapper">
+		<ul class="nav">
+			<li class="nav-item ">
+			<a class="nav-link" href="/">
+				<i class="material-icons">dashboard</i>
+				<p>Dashboard</p>
+			</a>
+			</li>
+			<li class="nav-item ">
+			<a class="nav-link" href="/produtos/allProdutos">
+				<i class="material-icons">store</i>
+				<p>Produtos</p>
+			</a>
+			</li>
+			<li class="nav-item active">
+			<a class="nav-link" href="/fornecedores/allFornecedores">
+				<i class="material-icons">storage</i>
+				<p>Fornecedores</p>
+			</a>
+			</li>
+			<li class="nav-item ">
+			<a class="nav-link" href="/clientes/allClientes">
+				<i class="material-icons">group</i>
+				<p>Clientes</p>
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="/usuarios/allusuarios">
+				<i class="material-icons">person_add</i>
+				<p>Usuarios</p>
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="/vendas/listarVendas">
+				<i class="material-icons">thumbs_up_down</i>
+				<p>Vendas</p>
+			</a>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+{{>navbar}}
+
+
+<!-- Cadastro de Fornecedor -->
+
+<div class="content" style=" margin-left: 180px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card" >
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Cadastrar Fornecedor</h4>
+                        <p class="card-category">Fornecedores</p>
                     </div>
-                </form>                
+                    <div class="card-body">
+                        <form method="post" action="/fornecedores/cadastrar">
+                        <div class="row">
+                            <div class="col-md-12">
+								<div class="form-group">
+									<label class="bmd-label-floating">Nome</label>
+									<input type="text" class="form-control"  name="nome" required="true">
+								</div>
+                            </div>
+                            <div class="col-md-12">
+								<div class="form-group">
+									<label for="email" class="bmd-label-floating">E-mail</label>
+                    				<input type="text" class="form-control" name="email" required="true">
+								</div>
+                            </div>
+                            <div class="col-md-12">
+								<div class="form-group">
+									<label for="telefone"class="bmd-label-floating">Telefone</label>
+                    				<input type="text" class="form-control" name="telefone" required="true">
+								</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
+                        <a class="btn btn-secundary pull-left" href="/fornecedores/allFornecedores">Voltar </a>
+                        <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        {{#if message}}
-        <h4 class="alert alert-danger mt4">{{message}}</h4>
-        {{/if}}
     </div>
+</div>
