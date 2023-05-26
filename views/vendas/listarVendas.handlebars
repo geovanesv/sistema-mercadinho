@@ -13,7 +13,7 @@
 	<div class="sidebar-wrapper">
 		<ul class="nav">
 			<li class="nav-item ">
-			<a class="nav-link" href="/">
+			<a class="nav-link" href="/home">
 				<i class="material-icons">dashboard</i>
 				<p>Dashboard</p>
 			</a>
@@ -36,12 +36,7 @@
 				<p>Clientes</p>
 			</a>
 			</li>
-			<li class="nav-item">
-			<a class="nav-link" href="/usuarios/allusuarios">
-				<i class="material-icons">person_add</i>
-				<p>Usuarios</p>
-			</a>
-			</li>
+		
 			<li class="nav-item active">
 			<a class="nav-link" href="/vendas/listarVendas">
 				<i class="material-icons">thumbs_up_down</i>
@@ -54,82 +49,98 @@
 </div>
 
 {{>navbar}}
-<div id="conteudo" style="margin-left:20px;">
-	<h1 style=" text-align: center;">Lista de Clientes</h1>
-	<br>
-	<div class="d-flex justify-content-end" style="margin-bottom: 15px;"><a href="/vendas/realizarvenda"
-			class="btn btn-primary novoProd">Novo Cliente</a>
-	</div>
 
-	
+			{{!-- <tr style="background-color:#0069D9;">
+                         --}}
 
-<table class="table table-hover" >
-  <thead>
-			<tr style="background-color:#0069D9;">
-                        <th scope="col">ID</th>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Produto</th>
-                        <th scope="col">Fornecedor</th>
-                        <th scope="col">Quantidade</th>
-                        <th scope="col">Data da Venda</th>
-						<th scope="col" colspan="2" class="acoes">Ações</th>
-			</tr>
-		</thead>
-		<tbody>
-			{{#each vendas}}
-			<tr >
-							<th scope="row">{{this.idVenda}}</th>
-							    <td>{{this.Cliente.nome}}</td>
-                                <td>{{this.Produto.nome}}</td>
-                                <td>{{this.Fornecedor.nome}}</td>
-                                <td>{{this.quantidade}}</td>
-                                <td>{{this.createdAt}}</td>
 
-				<td class="btnAcoes" style="text-align: center;">
-
-							<a href="vendas/editarVendas/{{this.id}}" class="btn btn-success">
-									Editar
-							</a>
-								<form action="vendas/remove" method="post">
-
-						<button id="btnExcluir" type="button" class="btn btn-danger" data-toggle="modal"
-							data-target="#mymodal">
-							<img src="/imagens/excluir3.png" alt="Excluir-produto" height="22px">
-						</button>
-						<div id="mymodal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-							aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLongTitle">excluir Forneceedor?</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										Deseja excluir os dados?
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Fechar</button>
-										<button type="submit" class="btn btn-danger botao">
-											<input type="hidden" name="id" value="{{this.id}}">
-											Excluir
-											<img src="/imagens/trash.svg" alt="Excluir-produto" height="22px">
-										</button>
-									</div>
-								</div>
-							</div>
+<div class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<br>
+				<div class="d-flex justify-content-end" style="margin-bottom: 15px;"><a href="/vendas/realizarvenda"
+						class="btn btn-primary novoProd">Realizar venda</a>
+				</div>
+				<div class="card">
+					<div class="card-header card-header-primary"  style="text-transform: uppercase;">
+						<h4 class="card-title ">Lista de Vendas</h4>
+						<p class="card-category">Lista contendo as vendas realizadas</p>
+					</div>
+					<div class="card-body"  style="text-align: center;">
+						<div class="table-responsive">
+							<table class="table">
+								<thead class=" text-primary" style="text-transform: uppercase;">
+									<th scope="col">ID</th>
+									<th scope="col">Cliente</th>
+									<th scope="col">Produto</th>
+									<th scope="col">Fornecedor</th>
+									<th scope="col">Quantidade</th>
+									<th scope="col">Data da Venda</th>
+									<th scope="col" colspan="2" class="acoes">Ações</th>
+								</thead>
+								<tbody>
+									{{#each vendas}}
+									<tr>
+										<td>{{this.id}}</td>
+										<td>{{this.idCliente}}</td>
+										<td>{{this.idProduto}}</td>
+										<td>{{this.idFornecedor}}</td>
+										<td>{{this.quantidade}}</td>
+										<td>{{this.data}}</td>
+										<td class="td-actions text-left">
+											<form action="/vendas/remove" method="post">
+												<a href="/vendas/edit/{{this.id}}" rel="tooltip"
+													title="Edit Task" class="btn btn-primary btn-link btn-sm">
+													<i class="material-icons">edit</i>
+												</a>
+												<button id="btnExcluir" type="button" rel="tooltip" title="Remove"
+													class="btn btn-danger btn-link btn-sm" data-toggle="modal"
+													data-target="#mymodal">
+													<i class="material-icons">close</i>
+												</button>
+												<div id="mymodal" class="modal fade" id="exampleModalCenter"
+													tabindex="-1" role="dialog"
+													aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+													<div class="modal-dialog modal-dialog-centered" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLongTitle">
+																	Deseja realmente excluir a venda?</h5>
+																<button type="button" class="close" data-dismiss="modal"
+																	aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															{{!-- <div class="modal-body">
+																Deseja excluir os dados?
+															</div> --}}
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary"
+																	data-dismiss="modal">Cancelar</button>
+																<button type="submit" class="btn btn-danger botao">
+																	<input type="hidden" name="id"
+																		value="{{this.id}}">
+																	Excluir
+																	<img src="/imagens/trash.svg" alt="Excluir-fornecedor"
+																		height="22px">
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</td>
+									</tr>
+									{{else}}
+									<h4 class="mt-2">Nenhuma Venda Realizada!</h4>
+									{{/each}}
+								</tbody>
+							</table>
 						</div>
-					</form>
-						</td>
-
-				</td>
-			</tr>
-			{{else}}
-			<h4 class="mt-2">Nenhum Cliente cadastrado!</h4>
-			{{/each}}
-		</tbody>
-</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-</body>

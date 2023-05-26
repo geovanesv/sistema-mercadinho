@@ -9,7 +9,7 @@
 <div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
 
 	<div class="logo">
-	<a href="/" class="simple-text logo-normal">
+	<a href="/home" class="simple-text logo-normal">
 		Sistema Mercadinho
 	</a>
 	</div>
@@ -40,12 +40,12 @@
 				<p>Clientes</p>
 			</a>
 			</li>
-			<li class="nav-item">
+			{{!-- <li class="nav-item">
 			<a class="nav-link" href="/usuarios/allusuarios">
 				<i class="material-icons">person_add</i>
 				<p>Usuarios</p>
 			</a>
-			</li>
+			</li> --}}
 			<li class="nav-item">
 			<a class="nav-link" href="/vendas/listarVendas">
 				<i class="material-icons">thumbs_up_down</i>
@@ -84,7 +84,7 @@
 								<tbody>
 									{{#each clientes}}
 									<tr>
-										<th>{{this.idCliente}}</th>
+										<td>{{this.idCliente}}</td>
 										<td>{{this.nome}}</td>
 										<td>{{this.email}}</td>
 										<td>{{this.telefone}}</td>
@@ -106,7 +106,8 @@
 														<div class="modal-content">
 															<div class="modal-header">
 																<h5 class="modal-title" id="exampleModalLongTitle">
-																	Deseja realmente excluir o cliente "{{this.nome}}"?</h5>
+																	Deseja realmente excluir o cliente "{{this.nome}}"?
+																</h5>
 																<button type="button" class="close" data-dismiss="modal"
 																	aria-label="Close">
 																	<span aria-hidden="true">&times;</span>
@@ -123,8 +124,6 @@
 																	<input type="hidden" name="id"
 																		value="{{this.idCliente}}">
 																	Excluir
-																	<img src="/imagens/trash.svg" alt="Excluir-produto"
-																		height="22px">
 																</button>
 															</div>
 														</div>
@@ -145,70 +144,3 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-{{!-- <table class="table table-hover">
-	<thead>
-		<tr style="background-color:#0069D9;">
-			<th scope="col">Id</th>
-			<th scope="col">Nome</th>
-			<th scope="col">E-mail</th>
-			<th scope="col">Telefone</th>
-			<th scope="col" colspan="2" class="acoes">Ações</th>
-		</tr>
-	</thead>
-	<tbody>
-		{{#each clientes}}
-		<tr>
-			<th scope="row">{{this.idCliente}}</th>
-			<td>{{this.nome}}</td>
-			<td>{{this.email}}</td>
-			<td>{{this.telefone}}</td>
-			<td class="btnAcoes" style="text-align: center;">
-				<form action="/clientes/remover" method="post">
-					<a href="/clientes/edit/{{this.idCliente}}" class="btn btn-success">
-						<img src="/imagens/editar2.png" alt="Editar-Cliente" height="20px">
-					</a>
-
-					<button id="btnExcluir" type="button" class="btn btn-danger" data-toggle="modal"
-						data-target="#mymodal">
-						<img src="/imagens/excluir3.png" alt="Excluir-Cliente" height="22px">
-					</button>
-					<div id="mymodal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-						aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLongTitle">Excluir Cliente?</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									Deseja excluir os dados?
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-									<button type="submit" class="btn btn-danger botao">
-										<input type="hidden" name="id" value="{{this.idCliente}}">
-										Excluir
-										<img src="/imagens/trash.svg" alt="Excluir-produto" height="22px">
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-
-			</td>
-
-			</td>
-		</tr>
-		{{else}}
-		<h4 class="mt-2">Nenhum Cliente cadastrado!</h4>
-		{{/each}}
-	</tbody>
-</table>
-</div> --}}

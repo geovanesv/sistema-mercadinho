@@ -5,6 +5,7 @@ const UsuarioController = require('../controllers/UsuarioController')
 router.post('/add', UsuarioController.newUsuarioSave);
 router.post('/edit',UsuarioController.updateUsuarioSave)
 router.post('/remove',UsuarioController.removeUsuario)
+//router.post('/atualizar',UsuarioController.atualizarProduto)
 
 router.get('/cadastrar',UsuarioController.cadastrar)
 router.get('/allUsuarios',UsuarioController.allUsuarios)

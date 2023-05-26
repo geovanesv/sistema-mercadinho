@@ -46,6 +46,29 @@ module.exports = class VendaController {
         res.redirect('/vendas/realizarVenda')
       })
   }
+  static async vendaNewSave(req, res) {
+    const venda = {
+      include : [
+        model = cliente,
+      ],
+      cliente: req.body.cliente,
+      fornecedor: req.body.categoria,
+      produto: req.body.produto,
+      quantidade: req.body.quantidade
+    }
+
+    await Venda.create(venda)
+      .then(() => {
+        // this.allProdutos()//carregar todos os PRODUTOS
+      }).catch((error) => {
+        console.log(error)
+      })
+    res.redirect('/vendas/listarvendas')
+
+  }
+
+
+
 
   static async listarVendas(req, res) {
     const vendas = await Venda.findAll({ raw: true })
@@ -100,11 +123,11 @@ module.exports = class VendaController {
 
     await Venda.destroy({ where: { id: venda_id } })
       .then(() => {
-        res.redirect('/listarvendas')
+        res.redirect('/vendas/listarvendas')
       })
       .catch((err) => {
         console.log(err)
-        res.redirect('/listarvendas')
+        res.redirect('/vendas/listarvendas')
       })
   }
 }

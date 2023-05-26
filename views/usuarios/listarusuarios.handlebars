@@ -10,7 +10,7 @@
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
 
       <div class="logo">
-        <a href="/dashboard" class="simple-text logo-normal">
+        <a href="/home" class="simple-text logo-normal">
           Sistema Mercadinho
         </a>
       </div>
@@ -41,12 +41,12 @@
               <p>Clientes</p>
             </a>
           </li>
-          <li class="nav-item active">
+          {{!-- <li class="nav-item active">
             <a class="nav-link" href="/usuarios/allusuarios">
               <i class="material-icons">person_add</i>
               <p>Usuarios</p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item ">
             <a class="nav-link" href="/vendas/listarVendas">
               <i class="material-icons">thumbs_up_down</i>
@@ -65,7 +65,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<br>
-				<div class="d-flex justify-content-end" style="margin-bottom: 15px;"><a href="/usuarios/cadastrar"
+				<div class="d-flex justify-content-end" style="margin-bottom: 15px;"><a href="/cadastrar"
 						class="btn btn-primary novoProd">Novo usuario</a>
 				</div>
 				<div class="card">
@@ -108,23 +108,22 @@
 														<div class="modal-content">
 															<div class="modal-header">
 																<h5 class="modal-title" id="exampleModalLongTitle">
-																	excluir Forneceedor? {{this.id}}</h5>
+																	Deseja realmente excluir o Usuario "{{this.nome}}"?
+																</h5>
 																<button type="button" class="close" data-dismiss="modal"
 																	aria-label="Close">
 																	<span aria-hidden="true">&times;</span>
 																</button>
 															</div>
-															<div class="modal-body">
+															{{!-- <div class="modal-body">
 																Deseja excluir os dados?
-															</div>
+															</div> --}}
 															<div class="modal-footer">
 																<button type="button" class="btn btn-secondary"
 																	data-dismiss="modal">Fechar</button>
 																<button type="submit" class="btn btn-danger botao">
 																	<input type="hidden" name="id" value="{{this.id}}">
 																	Excluir
-																	<img src="/imagens/trash.svg" alt="Excluir-produto"
-																		height="22px">
 																</button>
 															</div>
 														</div>
@@ -134,7 +133,7 @@
 										</td>
 									</tr>
 									{{else}}
-									<h4 class="mt-2">Nenhum Cliente cadastrado!</h4>
+									<h4 class="mt-2">Nenhum Usuario cadastrado!</h4>
 									{{/each}}
 								</tbody>
 							</table>

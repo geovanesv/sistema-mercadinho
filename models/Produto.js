@@ -10,6 +10,11 @@ const Produto = db.define('Produto', {
     allowNull: false,
     primaryKey: true
   },
+  codigo: {
+    type: DataTypes.STRING,
+    required: true,
+    allowNull: false
+  },
   nome: {
     type: DataTypes.STRING,
     required: true,
@@ -27,7 +32,7 @@ const Produto = db.define('Produto', {
     allowNull: false
   },
 
-  qt_produto: {
+  stock: {
     type: DataTypes.INTEGER,
     required: true,
     allowNull: false

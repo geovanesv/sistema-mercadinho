@@ -1,10 +1,15 @@
+<!-- BOOTSTRAP -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"
+	type="text/javascript"></script>
+
  <!-- CSS -->
 <link href="/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
 
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
 
       <div class="logo">
-        <a href="/dashboard" class="simple-text logo-normal">
+        <a href="/home" class="simple-text logo-normal">
           Sistema Mercadinho
         </a>
       </div>
@@ -30,17 +35,17 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/clientes/allClientes">
+            <a class="nav-link" href="/usuarios/allUsuarios">
               <i class="material-icons">group</i>
               <p>Clientes</p>
             </a>
           </li>
-          <li class="nav-item active">
+          {{!-- <li class="nav-item active">
             <a class="nav-link" href="/usuarios/allusuarios">
               <i class="material-icons">person_add</i>
               <p>Usuarios</p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item ">
             <a class="nav-link" href="/vendas/listarVendas">
               <i class="material-icons">thumbs_up_down</i>
@@ -51,90 +56,73 @@
         </ul>
       </div>
     </div>
-    
-{{>navbar}}
-
-
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
-
-      <div class="logo">
-        <a href="/dashboard" class="simple-text logo-normal">
-          Sistema Mercadinho
-        </a>
-      </div>
-      
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item ">
-            <a class="nav-link" href="/home">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/produtos/allProdutos">
-              <i class="material-icons">Produtos</i>
-              <p>Produtos</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/fornecedores/allFornecedores">
-              <i class="material-icons">Fornecedores</i>
-              <p>Fornecedores</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/clientes/allClientes">
-              <i class="material-icons">Clientes</i>
-              <p>Clientes</p>
-            </a>
-          </li>
-          <li class="nav-item active ">
-            <a class="nav-link" href="/usuarios/allusuarios">
-              <i class="material-icons">usuarios</i>
-              <p>Usuarios</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/vendas/listarVendas">
-              <i class="material-icons">Vendas</i>
-              <p>Vendas</p>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
 
 {{> navbar}}
 
+<div class="content" style="margin-top: 20px; margin-left: 180px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Editar Usuario: {{usuario.nome}}</h4>
+                        <p class="card-category">Usuarios</p>
+                    </div>
 
-<div style="margin-left: 30%;">
-    <h1 style="margin-top: 15px;margin-bottom: 15px;">Editar usuario: {{usuario.nome}}</h1>
-    <form action="/usuarios/edit" method="post" >
-        <input type="hidden" name="id" value="{{usuario.id}}" />
-        <div class="col-md-6">
-            <label for="nome" class="form-label">Nome:</label>
-            <input type="text" name="nome" value="{{usuario.nome}}" class="form-control" />
-        </div>
-        <div class="col-md-6">
-            <label for="email" class="form-label">Email:</label>
-            <input type="email" name="email" value="{{usuario.email}}" class="form-control" />
-        </div>
-        <div class="col-md-6">
-            <label for="password" class="form-label">Senha:</label>
-            <input type="password" name="password" value="{{usuario.password}}" class="form-control" />
-        </div>              
-        <div class="row md-2" style="margin-top: 15px; margin-left:5px">
-            <div class="col-sm-2">
-                <button type="submit" class="btn btn-primary">Atualizar</button>
+                    <div class="card-body">
+                        <form action="/usuarios/edit" method="post">
+                            <input type="hidden" name="id" value="{{usuario.id}}" />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="nome" class="bmd-label-floating">Nome:</label>
+                                        <input type="text" name="nome" value="{{usuario.nome}}" class="form-control" required="true" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="nome" class="bmd-label-floating">E-mail:</label>
+                                        <input type="email" name="email" value="{{usuario.email}}" class="form-control" required="true" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="nome" class="bmd-label-floating">Password:</label>
+                                        <input type="text" name="password" value="{{usuario.password}}" class="form-control" required="true" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="btnEditar" type="button" class="btn btn-primary pull-right"  data-toggle="modal" data-target="#mymodal">Salvar Alterações</button>
+                            <a class="btn btn-secundary pull-left" href="/usuarios/allUsuarios">Voltar </a>
+                            <div class="clearfix"></div>
+                            <!--Modal abaixo-->
+                            <div id="mymodal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Deseja salvar alterações no Usuario?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        {{!-- <div class="modal-body">
+                                            Deseja Editar os dados?
+                                        </div> --}}
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-primary">
+                                                Salvar
+                                            </button>
+                                        </div>
+                                    </div>
+                             </div>
+                        </div>
+                     </form>
+                </div>
             </div>
-            <div class="col-sm-2">
-                <a class="btn btn-danger" href="/usuarios/allUsuarios">Voltar</a>
-            </div>
-
-        </div>    
-    </form>
+        </div>
+    </div>
 </div>
 
 

@@ -1,0 +1,117 @@
+
+ <!-- CSS -->
+<link href="/stylesheets/reset.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/forms.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/estilo_home.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/menu.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
+
+      <div class="logo">
+        <a href="/home" class="simple-text logo-normal">
+          Sistema Mercadinho
+        </a>
+      </div>
+      
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="/home">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/produtos/allProdutos">
+              <i class="material-icons">store</i>
+              <p>Produtos</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/fornecedores/allFornecedores">
+              <i class="material-icons">storage</i>
+              <p>Fornecedores</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/clientes/allClientes">
+              <i class="material-icons">group</i>
+              <p>Clientes</p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/vendas/listarVendas">
+              <i class="material-icons">thumbs_up_down</i>
+              <p>Vendas</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+{{>navbar}}
+
+      <title>Venda Produto</title>
+    
+<div class="content" style="text-transform: uppercase;">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				
+				
+				<div class="card">
+					<div class="card-header card-header-primary">
+						<h4 class="card-title ">Lista de produtos</h4>
+					</div>
+					<div class="card-body" style="text-align: center;">
+						<div class="table-responsive">
+							<table class="table">
+								<thead class="text-primary tabela-bold" >
+									<th>Código</th>
+									<th>Nome</th>
+									<th>Categoria</th>
+									<th>Preco</th>
+									<th>Quantidade</th>
+									<th>idFornecedor</th>
+									<th>Ações</th>
+								</thead>
+								<tbody >
+									{{#each produtos}}
+									<tr>
+										<td>{{this.codigo}}</td>
+										<td>{{this.nome}}</td>
+										<td>{{this.categoria}}</td>
+										<td>R$ {{this.preco}}</td>
+										<td>{{this.stock}}</td>
+										<td>{{this.idFornecedor}}</td>
+										<td class="td-actions text-left">
+											
+                    <a href="/produtos/addvenda/{{this.idProduto}}" rel="tooltip"
+                      title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                      Add
+                    </a>
+												
+            </div>
+          </div>
+        </div>
+      </div>
+											
+										</td>
+									</tr>
+									{{else}}
+									<h4 class="mt-2">Nenhum Produto disponivel para venda!</h4>
+									{{/each}}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

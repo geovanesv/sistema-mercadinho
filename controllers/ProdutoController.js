@@ -8,18 +8,23 @@ module.exports = class UserController {
     res.render('produtos/cadastrar',{fornecedores})
   }
   
-  static saidaProduto(req, res) {
-    res.render('produtos/saidaProduto')
+  static async vendaProduto(req, res) {
+    const produtos = await Produto.findAll({ raw: true })
+    res.render('produtos/vendaProduto',{produtos})
   }
-
-  
+  static async entradaProduto(req, res) {
+    const produtos = await Produto.findAll({ raw: true })
+    res.render('produtos/entradaProduto',{produtos})
+  }
+    
   static async newProdutoSave(req, res) {
     const produto = {
       nome: req.body.nome,
+      codigo: req.body.codProduto,
       categoria: req.body.categoria,
       idFornecedor: req.body.id,
       preco: req.body.preco, 
-      qt_produto: req.body.qt_produto
+      stock: req.body.qt_produto
     }
 
     await Produto.create(produto)
@@ -50,8 +55,11 @@ module.exports = class UserController {
     const id = req.body.id
     const produto = {
       nome: req.body.nome,
+      codigo: req.body.codigo,
       categoria: req.body.categoria,
-      preco: req.body.preco
+      preco: req.body.preco,
+      stock : req.body.stock
+      
     }
     await Produto.update(produto, { where: { idProduto: id } })
       .then(res.redirect('/produtos/allProdutos'))
@@ -60,9 +68,20 @@ module.exports = class UserController {
       })
   }
 
+  //DELETAR PRODUTO
   static async removeProduto(req, res) {
     const id = req.body.id
     await Produto.destroy({ where: { idProduto: id } })
+      .then(res.redirect('/produtos/allProdutos'))
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  //ENTRADA PRODUTO
+  static async atualizarEstoque(req, res) {
+    const id = req.body.id
+    await Produto.findOne({ where: { idProduto: id } })
       .then(res.redirect('/produtos/allProdutos'))
       .catch((err) => {
         console.log(err)

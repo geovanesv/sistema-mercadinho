@@ -21,7 +21,7 @@ module.exports = class UsuarioController {
         console.log(error)
       })
     //redirecionar para a lista de usuarios
-    res.redirect('/usuarios/allUsuarios')
+    res.redirect('/home')
 
   }
   static async allUsuarios(req, res) {

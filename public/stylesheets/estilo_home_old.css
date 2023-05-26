@@ -6,16 +6,15 @@ html {
 
 body {
 	padding-top: 57px;
-	padding-left: 10px;
+	padding-left: 170px;
 
 }
 
 /*Div Central*/
 #conteudo {
 	padding: 20px;
-	font-size:20px;
-	
-	
+	font-size:14px;
+
 }
 
 
@@ -24,9 +23,7 @@ body {
 	display: flex;
 	justify-content: center;
 	padding: 10px;
-	margin-top: 10px;
-	color: #fff;
-	flex-wrap: wrap;
+	margin-top: 30px;
 }
 
 /*divisoria*/
@@ -41,20 +38,19 @@ body {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	width: 300px;
+	width: 500px;
 	height: 120px;
-	border: 0px solid #ffffff;
-	background: linear-gradient(to right, #0069D9, #5500b6);
+	border: 1px solid #14005c;
+	background-color: #ffffff;
 	margin: 15px;
-	border-radius: 10px;
+	border-radius: 20px;
 	padding: 3px;
-	box-shadow: 3px 3px 6px #00000056;
+	box-shadow: 5px 10px 6px #00000056;
 }
 
 figure img {
-	width: 60px;
+	width: 50px;
 }
-
 
 .item:hover {
 	-moz-transform: scale(1.1);
@@ -66,10 +62,7 @@ figure img {
 }
 
 .legenda a {
-	color: rgb(255, 255, 255)
-}
-.legenda a :hover{
-	color: rgb(184, 181, 181)
+	color: black;
 }
 
 .botao{
@@ -88,5 +81,4 @@ figure img {
 .botao a{
 	color: #FFFF;
 }
-
 

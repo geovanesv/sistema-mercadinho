@@ -9,7 +9,8 @@ const FornecedorRoutes = require('./routes/routesFornecedor')
 const VendaRoutes = require('./routes/routesVenda')
 const ProdutosRoutes = require('./routes/routesProdutos')
 const UsuariosRoutes = require('./routes/routesUsuarios')
-const indexRoutes = require('./routes/inicio')
+const indexRoutes = require('./routes/login')
+const session = require('express-session');
 
 
 //Autor Geovane Araujo
@@ -30,8 +31,15 @@ app.use(express.static('public'));
 
 //app.setMaxListeners(15);
 
+app.use(session({
+  name: "session",
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true
+}));
 
-app.get('/',indexRoutes);
+
+app.use('/',indexRoutes);
 app.use('/produtos',ProdutosRoutes);
 app.use('/usuarios',UsuariosRoutes);
 app.use('/fornecedores',FornecedorRoutes);
