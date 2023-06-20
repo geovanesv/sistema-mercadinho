@@ -1,35 +1,16 @@
 <h1 align="center" id="title">Sistema Mercadinho</h1>
 
-## Índice
-
-- [Visão geral](#visão-geral)
-  - [Links](#links)
-- [Meu processo](#meu-processo)
-  - [Tecnologias](#tecnologias)
-  - [Recursos úteis](#recursos-úteis)
-- [Requisitos](#requisitos)
-  - [Rodando o projeto](#rodando-o-projeto)
-- [Autores](#autores)
-
-
 ## Visão geral
 Um sistema para cadastro de produtos, fornecedores, clientes e que realize vendas.
-
-
-## Processos
 
 ### Tecnologias
 - [Node.js](https://nodejs.org/en/)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [Material UI](https://mui.com/)
 - [Handlebars](https://handlebarsjs.com/)
 - [Sequelize](https://sequelize.org/)
-
-###  Recursos úteis
-- [ video do Luiz Tools ](https://www.youtube.com/watch?v=g5ij7NIPR2s&ab_channel=LuizTools)
-- [ Curso de nodejs - Victor Lima ](https://www.youtube.com/watch?v=LLqq6FemMNQ&list=PLJ_KhUnlXUPtbtLwaxxUxHqvcNQndmI4B&ab_channel=VictorLima-Ci%C3%AAnciadaComputa%C3%A7%C3%A3o)
-
 
 ## Requisitos
 
