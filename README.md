@@ -37,6 +37,18 @@ $ npm run dev
 # O servidor iniciará na porta:3000 <http://localhost:3000>
 
 ```
+## Imagens
+* Fluxograma de Telas
+<img src="https://github.com/geovanesv/sistema-mercadinho/assets/49567926/e8ccb4d1-6cd1-4437-8c45-aaaea8f4b78f" width="300"/>
+<img src="https://github.com/geovanesv/sistema-mercadinho/assets/49567926/185055f0-1183-4b2f-9666-eeec3403eb57" width="300"/>
+
+<img src="https://github.com/geovanesv/sistema-mercadinho/assets/49567926/8e73467a-2ff6-4142-a65f-ea5894070673" width="300"/>
+<img src="https://github.com/geovanesv/sistema-mercadinho/assets/49567926/adaf02b8-e6ac-4e6b-a862-e68c518b4ea7" width="300"/>
+<img src="https://github.com/geovanesv/sistema-mercadinho/assets/49567926/e805a83e-cf36-46f9-aacd-321f0aa52119" width="300"/>
+
+<img src="https://github.com/geovanesv/sistema-mercadinho/assets/49567926/047e0645-cc1b-4937-a625-da5444b63376" width="300"/>
+
+<img src="https://github.com/geovanesv/sistema-mercadinho/assets/49567926/bb766fe3-5dfa-4b40-9155-c91810a4e3db" width="300"/>
 
 ## Autores
 
